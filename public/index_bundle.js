@@ -28573,6 +28573,7 @@ var SignupForm = function (_React$Component) {
             { className: 'control-label' },
             'Email'
           ),
+          React.createElement('input', { value: this.state.email, onChange: this.onChange, type: 'email', name: 'email', className: 'form-control' })
         ),
         React.createElement(
           'div',
@@ -28582,6 +28583,7 @@ var SignupForm = function (_React$Component) {
             { className: 'control-label' },
             'Password'
           ),
+          React.createElement('input', { value: this.state.password, onChange: this.onChange, type: 'password', name: 'password', className: 'form-control' })
         ),
         React.createElement(
           'div',
@@ -28591,6 +28593,7 @@ var SignupForm = function (_React$Component) {
             { className: 'control-label' },
             'Password Confirmation'
           ),
+          React.createElement('input', { value: this.state.passwordConfirmation, onChange: this.onChange, type: 'password', name: 'passwordConfirmation', className: 'form-control' })
         ),
         React.createElement(
           'div',
