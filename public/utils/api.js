@@ -49,9 +49,6 @@ module.exports = {
   },
   deleteRip: function(id, _id) {
     var requestUrl = "/api/rip/" + id;
-    /*  var rips = {
-      _id:_id
-    };*/
     console.log(id, _id);
     return axios.delete(requestUrl, {
       "rips": {
