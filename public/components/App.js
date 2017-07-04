@@ -4,6 +4,7 @@ var Exercices = require('./Exercices/Exercices');
 var Error404 = require('./Error404');
 var Rips = require('./Exercices/Rips')
 var Nav = require('./Nav');
+var SignupPage = require('./Signup/SignupPage');
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
@@ -17,10 +18,10 @@ class App extends React.Component {
         <div>
           <Nav/>
           <Switch>
-
+            <Route path={'/signup'} component={SignupPage}/>
             <Route path={'/:id'} component={Rips}/>
             <Route  path={'/'} component={Exercices}/>
-            <Route component={Error404}/>
+            <Route  component={Error404}/>
           </Switch>
         </div>
       </Router>

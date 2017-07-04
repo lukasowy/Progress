@@ -12182,6 +12182,7 @@ var Exercices = __webpack_require__(254);
 var Error404 = __webpack_require__(251);
 var Rips = __webpack_require__(255);
 var Nav = __webpack_require__(256);
+var SignupPage = __webpack_require__(259);
 var ReactRouter = __webpack_require__(60);
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
@@ -12209,6 +12210,7 @@ var App = function (_React$Component) {
           React.createElement(
             Switch,
             null,
+            React.createElement(Route, { path: '/signup', component: SignupPage }),
             React.createElement(Route, { path: '/:id', component: Rips }),
             React.createElement(Route, { path: '/', component: Exercices }),
             React.createElement(Route, { component: Error404 })
@@ -28298,6 +28300,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = __webpack_require__(6);
+var Link = __webpack_require__(60).Link;
 
 var Nav = function (_React$Component) {
   _inherits(Nav, _React$Component);
@@ -28309,148 +28312,157 @@ var Nav = function (_React$Component) {
   }
 
   _createClass(Nav, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
-        { className: "view view-color navbar navbar-inverse" },
+        'div',
+        { className: 'view view-color navbar navbar-inverse' },
         React.createElement(
-          "div",
-          { className: "position-title" },
-          "Progress"
+          'div',
+          { className: 'position-title' },
+          'Progress'
         ),
         React.createElement(
-          "div",
-          { className: "container-fluid " },
+          'div',
+          { className: 'container-fluid ' },
           React.createElement(
-            "div",
-            { className: "navbar-header " },
+            'div',
+            { className: 'navbar-header ' },
             React.createElement(
-              "button",
-              { type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
+              'button',
+              { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
               React.createElement(
-                "span",
-                { className: "sr-only" },
-                "Toggle navigation"
+                'span',
+                { className: 'sr-only' },
+                'Toggle navigation'
               ),
-              React.createElement("span", { className: "icon-bar" }),
-              React.createElement("span", { className: "icon-bar" }),
-              React.createElement("span", { className: "icon-bar" })
+              React.createElement('span', { className: 'icon-bar' }),
+              React.createElement('span', { className: 'icon-bar' }),
+              React.createElement('span', { className: 'icon-bar' })
             ),
             React.createElement(
-              "div",
-              { className: "" },
+              'div',
+              { className: '' },
               React.createElement(
-                "a",
-                { className: "centerLi navbar-brand", href: "/" },
-                React.createElement("img", { alt: "Brand", className: "size-img", src: "./images/progress.png" })
+                'a',
+                { className: 'centerLi navbar-brand', href: '/' },
+                React.createElement('img', { alt: 'Brand', className: 'size-img', src: './images/progress.png' })
               )
             )
           ),
           React.createElement(
-            "div",
-            { className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1" },
+            'div',
+            { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
             React.createElement(
-              "ul",
-              { className: "nav navbar-nav navbar-right" },
+              'ul',
+              { className: 'nav navbar-nav navbar-right' },
               React.createElement(
-                "li",
-                { className: "dropdown" },
+                'li',
+                null,
                 React.createElement(
-                  "a",
-                  { href: "#", className: "dropdown-toggle", "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false" },
-                  React.createElement("span", { className: "icon-color glyphicon glyphicon-user" }),
-                  React.createElement("span", { className: "icon-color caret" })
+                  Link,
+                  { to: '/signup' },
+                  'Sign up'
+                )
+              ),
+              React.createElement(
+                'li',
+                { className: 'dropdown' },
+                React.createElement(
+                  'a',
+                  { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
+                  React.createElement('span', { className: 'icon-color glyphicon glyphicon-user' }),
+                  React.createElement('span', { className: 'icon-color caret' })
                 ),
                 React.createElement(
-                  "ul",
-                  { className: "dropdown-menu" },
+                  'ul',
+                  { className: 'dropdown-menu' },
                   React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                      "a",
-                      { href: "#" },
-                      "Invite Friends"
+                      'a',
+                      { href: '#' },
+                      'Invite Friends'
                     )
                   ),
                   React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                      "a",
-                      { href: "#" },
+                      'a',
+                      { href: '#' },
                       React.createElement(
-                        "div",
-                        { className: "two-side" },
+                        'div',
+                        { className: 'two-side' },
                         React.createElement(
-                          "span",
+                          'span',
                           null,
-                          "Settings"
+                          'Settings'
                         ),
-                        React.createElement("span", { className: "glyphicon glyphicon-cog" })
+                        React.createElement('span', { className: 'glyphicon glyphicon-cog' })
                       )
                     )
                   ),
-                  React.createElement("li", { role: "separator", className: "divider" }),
+                  React.createElement('li', { role: 'separator', className: 'divider' }),
                   React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                      "a",
-                      { href: "#" },
+                      'a',
+                      { href: '#' },
                       React.createElement(
-                        "div",
-                        { className: "two-side" },
+                        'div',
+                        { className: 'two-side' },
                         React.createElement(
-                          "span",
+                          'span',
                           null,
-                          "Log Out"
+                          'Log Out'
                         ),
-                        React.createElement("span", { className: "glyphicon glyphicon-off" })
+                        React.createElement('span', { className: 'glyphicon glyphicon-off' })
                       )
                     )
                   )
                 )
               ),
               React.createElement(
-                "li",
-                { className: "dropdown" },
+                'li',
+                { className: 'dropdown' },
                 React.createElement(
-                  "a",
-                  { href: "#", className: "dropdown-toggle", "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false" },
-                  React.createElement("span", { className: "icon-color \tglyphicon glyphicon-question-sign" }),
-                  React.createElement("span", { className: "icon-color caret" })
+                  'a',
+                  { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
+                  React.createElement('span', { className: 'icon-color \tglyphicon glyphicon-question-sign' }),
+                  React.createElement('span', { className: 'icon-color caret' })
                 ),
                 React.createElement(
-                  "ul",
-                  { className: "dropdown-menu" },
+                  'ul',
+                  { className: 'dropdown-menu' },
                   React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                      "a",
-                      { href: "#" },
-                      "Help"
+                      'a',
+                      { href: '#' },
+                      'Help'
                     )
                   ),
                   React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                      "a",
-                      { href: "#" },
-                      "Contact"
+                      'a',
+                      { href: '#' },
+                      'Contact'
                     )
                   ),
-                  React.createElement("li", { role: "separator", className: "divider" }),
+                  React.createElement('li', { role: 'separator', className: 'divider' }),
                   React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                      "a",
-                      { href: "#" },
-                      "Info"
+                      'a',
+                      { href: '#' },
+                      'Info'
                     )
                   )
                 )
@@ -28482,6 +28494,168 @@ var ReactDOM = __webpack_require__(104);
 var App = __webpack_require__(105);
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+
+/***/ }),
+/* 258 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var React = __webpack_require__(6);
+
+var SignupForm = function (_React$Component) {
+  _inherits(SignupForm, _React$Component);
+
+  function SignupForm(props) {
+    _classCallCheck(this, SignupForm);
+
+    var _this = _possibleConstructorReturn(this, (SignupForm.__proto__ || Object.getPrototypeOf(SignupForm)).call(this, props));
+
+    _this.state = {
+      username: '',
+      email: '',
+      password: '',
+      passwordConfirmation: ''
+    };
+    _this.onChange = _this.onChange.bind(_this);
+    _this.onSubmit = _this.onSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(SignupForm, [{
+    key: 'onChange',
+    value: function onChange(e) {
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
+    key: 'onSubmit',
+    value: function onSubmit(e) {
+      e.preventDefault();
+      console.log(this.state);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'form',
+        { onSubmit: this.onSubmit },
+        React.createElement(
+          'h1',
+          null,
+          'Join our community!'
+        ),
+        React.createElement(
+          'div',
+          { className: 'form-group' },
+          React.createElement(
+            'label',
+            { className: 'control-label' },
+            'Username'
+          ),
+          React.createElement('input', { value: this.state.username, onChange: this.onChange, type: 'text', name: 'username', className: 'form-control' })
+        ),
+        React.createElement(
+          'div',
+          { className: 'form-group' },
+          React.createElement(
+            'label',
+            { className: 'control-label' },
+            'Email'
+          ),
+        ),
+        React.createElement(
+          'div',
+          { className: 'form-group' },
+          React.createElement(
+            'label',
+            { className: 'control-label' },
+            'Password'
+          ),
+        ),
+        React.createElement(
+          'div',
+          { className: 'form-group' },
+          React.createElement(
+            'label',
+            { className: 'control-label' },
+            'Password Confirmation'
+          ),
+        ),
+        React.createElement(
+          'div',
+          { className: 'form-group' },
+          React.createElement(
+            'button',
+            { className: 'btn btn-primary btn-lg' },
+            'Sign up'
+          )
+        )
+      );
+    }
+  }]);
+
+  return SignupForm;
+}(React.Component);
+
+module.exports = SignupForm;
+
+/***/ }),
+/* 259 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var React = __webpack_require__(6);
+var SignupForm = __webpack_require__(258);
+
+var SignupPage = function (_React$Component) {
+  _inherits(SignupPage, _React$Component);
+
+  function SignupPage() {
+    _classCallCheck(this, SignupPage);
+
+    return _possibleConstructorReturn(this, (SignupPage.__proto__ || Object.getPrototypeOf(SignupPage)).apply(this, arguments));
+  }
+
+  _createClass(SignupPage, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-md-4 col-md-offset-4' },
+          React.createElement(SignupForm, null)
+        )
+      );
+    }
+  }]);
+
+  return SignupPage;
+}(React.Component);
+
+module.exports = SignupPage;
 
 /***/ })
 /******/ ]);
