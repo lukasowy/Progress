@@ -16,7 +16,7 @@ class Nav extends React.Component {
               <span className="icon-bar"></span>
             </button>
             <div className="">
-              <a className="centerLi navbar-brand" href="/"><img alt="Brand" className="size-img" src="./images/progress.png"/></a>
+              <a className="centerLi navbar-brand" href="/"><img alt="Brand" className="size-img" src="./images/progress.svg"/></a>
             </div>
 
           </div>

@@ -28346,7 +28346,7 @@ var Nav = function (_React$Component) {
               React.createElement(
                 'a',
                 { className: 'centerLi navbar-brand', href: '/' },
-                React.createElement('img', { alt: 'Brand', className: 'size-img', src: './images/progress.png' })
+                React.createElement('img', { alt: 'Brand', className: 'size-img', src: './images/progress.svg' })
               )
             )
           ),
