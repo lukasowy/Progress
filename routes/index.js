@@ -8,7 +8,6 @@ router.get('/api', function(req, res) {
     if (err) {
       res.send('error occured')
     } else {
-      //console.log(exercices);
       res.json(exercices);
     }
   });
@@ -19,7 +18,6 @@ router.get('/api/:_id', function(req, res) {
     if (err) {
       res.send('error occured')
     } else {
-      console.log(exercices);
       res.json(exercices);
     }
   });
@@ -35,7 +33,6 @@ router.post('/api/insert', function(req, res) {
     if (err) {
       res.send('error saving exercice');
     } else {
-      console.log(exercice);
       res.send(exercice);
     }
   });
@@ -48,7 +45,6 @@ router.delete('/api/:_id', function(req, res) {
     if (err) {
       console.log('err occured');
     } else {
-      console.log(rip);
       res.send(rip);
     }
   });
@@ -67,8 +63,6 @@ router.put('/api/:id', function(req, res) {
   }, function(err, exercice) {
     if (err)
       throw err;
-
-    console.log(exercice);
     res.send(exercice);
   });
 });
@@ -91,7 +85,6 @@ router.put('/api/rip/:id', function(req, res) {
     if (err) {
       console.log('err occured');
     } else {
-      console.log(newRip);
       res.json({id: newRip.rips[newRip.rips.length-1]});
     }
   });

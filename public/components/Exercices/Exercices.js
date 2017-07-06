@@ -40,16 +40,16 @@ function ExercicesList(props) {
   )
 }
 
-function Title(props){
-  return(
+function Title(props) {
+  return (
     <div className="panel panel-primary  col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
       <div className="panel-heading titleExercice ">Monitor your progress</div>
     </div>
   )
 }
 
-function TitleLine(props){
-  return(
+function TitleLine(props) {
+  return (
     <div className="top-buffer  col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
       <div className="title-line-description">
         <div>Exercise:</div>
@@ -90,8 +90,7 @@ class Exercices extends React.Component {
       <div>
         <Title/>
         <AddExercice/>
-        <TitleLine/>
-        {!this.state.exercices
+        <TitleLine/> {!this.state.exercices
           ? <p></p>
           : <ExercicesList onDelete={this.onDelete} exercices={this.state.exercices}/>}
 

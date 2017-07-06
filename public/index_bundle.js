@@ -4092,7 +4092,7 @@ module.exports = {
     var requestUrl = "/api/rip/" + id;
     console.log(id, _id);
     return axios.delete(requestUrl, {
-      "rips": {
+      data: {
         _id: _id
       }
     }).then(function (response) {
@@ -28058,6 +28058,7 @@ var Exercices = function (_React$Component) {
         React.createElement(Title, null),
         React.createElement(AddExercice, null),
         React.createElement(TitleLine, null),
+        ' ',
         !this.state.exercices ? React.createElement('p', null) : React.createElement(ExercicesList, { onDelete: this.onDelete, exercices: this.state.exercices })
       );
     }
