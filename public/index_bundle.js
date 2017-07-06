@@ -4090,7 +4090,6 @@ module.exports = {
   },
   deleteRip: function deleteRip(id, _id) {
     var requestUrl = "/api/rip/" + id;
-    console.log(id, _id);
     return axios.delete(requestUrl, {
       data: {
         _id: _id
