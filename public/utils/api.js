@@ -16,10 +16,10 @@ module.exports = {
   },
   postExercice: function(title) {
     var requestUrl = "/api/insert";
-    var title = {
+    var data = {
       title: title
     };
-    return axios.post(requestUrl, title).then(function(response) {
+    return axios.post(requestUrl, data).then(function(response) {
       console.log("success"),
       response.data
     }).catch(function(response) {

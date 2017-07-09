@@ -94,7 +94,6 @@ class Rips extends React.Component {
     }.bind(this));
   }
   onDelete(a,b) {
-    console.log(a,b);
     api.deleteRip(a,b).then(function(rips) {
       this.setState(function() {
         return {rips: rips}

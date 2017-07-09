@@ -1,14 +1,21 @@
 var React = require('react');
-var axios = require('axios');
+var classnames = require('classnames');
+var Validator =  require('validator');
+var isEmpty =  require( 'lodash/isEmpty');
+import TextFieldGroup from './TextFieldGroup';
 
+import history from 'history';
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name:'',
+      surname:'',
       username: '',
-      email:'',
       password:'',
-      passwordConfirmation:''
+      passwordConfirmation:'',
+      errors:{},
+      isLoading:false
     }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -18,37 +25,105 @@ class SignupForm extends React.Component {
       [e.target.name]: e.target.value
     });
   }
+  validateInput(data) {
+  let errors = {};
+
+  if (Validator.isEmpty(data.name)) {
+    errors.name = 'This field is required';
+  }
+  if (Validator.isEmpty(data.surname)) {
+    errors.surname = 'This field is required';
+  }
+  if (Validator.isEmpty(data.username)) {
+    errors.username = 'This field is required';
+  }
+  if (Validator.isEmpty(data.password)) {
+    errors.password = 'This field is required';
+  }
+  if (Validator.isEmpty(data.passwordConfirmation)) {
+    errors.passwordConfirmation = 'This field is required';
+  }
+  if (!Validator.equals(data.password, data.passwordConfirmation)) {
+    errors.passwordConfirmation = 'Passwords must match';
+  }
+
+  return {
+    errors,
+    isValid: isEmpty(errors)
+  }
+}
+
+isValid(){
+  const {errors, isValid} = this.validateInput(this.state);
+
+  if(!isValid){
+    this.setState({errors});
+  }
+  return isValid;
+}
+
   onSubmit(e){
     e.preventDefault();
-    axios.post('/api/users',{user:this.state});
+    if(this.isValid()){
+      this.setState({errors: {}, isLoading: true });
+      this.props.userSignupRequest(this.state).then(
+        () => {
+          this.props.history.push('/');
+        },
+        ({ data }) => this.setState({ errors:data, isLoading:false })
+      );
+    }
   }
   render() {
+    const {errors} = this.state;
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Join our community!</h1>
 
-        <div className="form-group">
-          <label className="control-label">Username</label>
-          <input value={this.state.username} onChange={this.onChange} type="text" name="username" className="form-control"/>
-        </div>
+        <TextFieldGroup
+            error={errors.name}
+            label="Name"
+            onChange={this.onChange}
+            value={this.state.name}
+            field="name"
+          />
+
+          <TextFieldGroup
+              error={errors.surname}
+              label="Surname"
+              onChange={this.onChange}
+              value={this.state.surname}
+              field="surname"
+            />
+
+        <TextFieldGroup
+            error={errors.username}
+            label="Username"
+            onChange={this.onChange}
+            value={this.state.username}
+            field="username"
+          />
+
+          <TextFieldGroup
+            error={errors.password}
+            label="Password"
+            onChange={this.onChange}
+            value={this.state.password}
+            field="password"
+            type="password"
+          />
+
+          <TextFieldGroup
+            error={errors.passwordConfirmation}
+            label="Password Confirmation"
+            onChange={this.onChange}
+            value={this.state.passwordConfirmation}
+            field="passwordConfirmation"
+            type="password"
+          />
 
         <div className="form-group">
-          <label className="control-label">Email</label>
-          <input value={this.state.email} onChange={this.onChange} type="email" name="email" className="form-control"/>
-        </div>
-
-        <div className="form-group">
-          <label className="control-label">Password</label>
-          <input value={this.state.password} onChange={this.onChange} type="password" name="password" className="form-control"/>
-        </div>
-
-        <div className="form-group">
-          <label className="control-label">Password Confirmation</label>
-          <input value={this.state.passwordConfirmation} onChange={this.onChange} type="password" name="passwordConfirmation" className="form-control"/>
-        </div>
-
-        <div className="form-group">
-          <button className="btn btn-primary btn-lg">
+          <button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
             Sign up
           </button>
         </div>
@@ -56,5 +131,6 @@ class SignupForm extends React.Component {
     );
   }
 }
+
 
 module.exports = SignupForm;

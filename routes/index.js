@@ -2,9 +2,16 @@ var express = require('express');
 var router = express.Router();
 var Exercice = require('../models/exercice');
 
+router.post('/api/user', function(req, res) {
+  if (req.body) {
+    res.json({success:true});
+  }else{
+    res.status(400).json(errors);
+  }
+});
 
 router.get('/api', function(req, res) {
-  var Exercies = Exercice.find({},'title').exec(function(err, exercices) {
+  var Exercies = Exercice.find({}, 'title').exec(function(err, exercices) {
     if (err) {
       res.send('error occured')
     } else {
@@ -14,7 +21,9 @@ router.get('/api', function(req, res) {
 });
 
 router.get('/api/:_id', function(req, res) {
-  var Exercies = Exercice.findOne({_id:req.params._id},['rips',"title"]).exec(function(err, exercices) {
+  var Exercies = Exercice.findOne({
+    _id: req.params._id
+  }, ['rips', "title"]).exec(function(err, exercices) {
     if (err) {
       res.send('error occured')
     } else {
@@ -25,6 +34,7 @@ router.get('/api/:_id', function(req, res) {
 
 //send new exercise to database
 router.post('/api/insert', function(req, res) {
+
   var newRip = new Exercice();
 
   newRip.title = req.body.title;
@@ -33,7 +43,7 @@ router.post('/api/insert', function(req, res) {
     if (err) {
       res.send('error saving exercice');
     } else {
-      res.status(200);
+      res.redirect('/');
     }
   });
 });
